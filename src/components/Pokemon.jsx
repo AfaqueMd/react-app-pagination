@@ -4,12 +4,13 @@ import Dropdown from "./Dropdown";
 import Pagination from "./Pagination";
 
 function Pokemon() {
-    const { page, pokemons, setPage ,dropDownRef} = usePagination()
+    const { page, pokemons, setPage, dropDownRef } = usePagination()
     let [pokemon, setPokemon] = useState([])
 
 
+    // extract the current page and pokemon selected
     useEffect(() => {
-        console.log("page", page)
+        // console.log("page", page)
         let res = pokemons.filter((pokemon) => pokemon.id == page)
         setPokemon(res[0])
     }, [page])
@@ -17,7 +18,7 @@ function Pokemon() {
     return (
         <>
             <Dropdown page={page} setPage={setPage} pokemons={pokemons} dropDownRef={dropDownRef} />
-            <div style={{width:"20em", }}>
+            <div style={{ width: "20em", }}>
 
                 <div key={pokemon.id}>
                     <div>
@@ -29,7 +30,7 @@ function Pokemon() {
                     </div>
                 </div>
             </div>
-            <Pagination page={page} setPage={setPage}  dropDownRef={dropDownRef} />
+            <Pagination page={page} setPage={setPage} dropDownRef={dropDownRef} />
         </>
     )
 }
