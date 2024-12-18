@@ -4,6 +4,7 @@ import Dropdown from "./Dropdown";
 import Pagination from "./Pagination";
 
 function Pokemon() {
+    // get states from custom hook
     const { page, pokemons, setPage, dropDownRef } = usePagination()
     let [pokemon, setPokemon] = useState([])
 
